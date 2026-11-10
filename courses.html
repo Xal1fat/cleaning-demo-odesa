@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Навчання хімчистці меблів — Clean At Home</title>
+<style>
+  :root{
+    --ink:#0E2A30; --slate:#5E7A80; --line:#DCEBED; --bg:#F7FBFC; --card:#fff;
+    --accent:#0E9F8C; --deep:#0B7D6E; --soft:#E4F6F1; --gold:#C89B5A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;
+    font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{letter-spacing:-.015em;line-height:1.1}
+
+  .hdr{position:sticky;top:0;z-index:50;background:rgba(247,251,252,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(14,42,48,.07)}
+  .hdr .wrap{display:flex;align-items:center;gap:24px;height:68px}
+  .brand{font-weight:900;font-size:19px}
+  .brand b{color:var(--accent)}
+  .hdr nav{display:flex;gap:22px;flex:1}
+  .hdr nav a{color:var(--slate);font-size:14.5px;font-weight:600;text-decoration:none}
+  .hdr nav a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;
+    font-family:inherit;font-weight:800;border-radius:12px;text-decoration:none}
+  .btn-sm{background:var(--accent);color:#fff;font-size:14px;padding:11px 18px;box-shadow:0 10px 24px rgba(14,159,140,.25)}
+
+  .hero{padding:64px 0 56px;background:
+      radial-gradient(900px 420px at 82% -10%, #D8F2EC 0%, transparent 62%),
+      radial-gradient(700px 380px at 10% 110%, #EAF7F4 0%, transparent 60%)}
+  .kicker{display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--deep);
+    border:1px solid rgba(14,159,140,.22);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+  h1{font-size:clamp(34px,4.6vw,56px);font-weight:900;margin-top:20px;max-width:760px}
+  h1 em{font-style:normal;color:var(--accent)}
+  .lead{margin-top:18px;font-size:18px;color:var(--slate);max-width:560px}
+  .hero-acts{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+  .btn-main{background:var(--accent);color:#fff;font-size:16.5px;padding:17px 30px;box-shadow:0 16px 36px rgba(14,159,140,.3)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid rgba(14,42,48,.2);font-size:16px;padding:16px 26px}
+  .hero-note{margin-top:18px;font-size:13.5px;color:var(--slate)}
+  .stats{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 20px;min-width:150px}
+  .stat b{display:block;font-size:22px;font-weight:900;color:var(--deep)}
+  .stat span{font-size:12.5px;color:var(--slate)}
+
+  section{padding:72px 0}
+  .label{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--deep)}
+  .sec-h{font-size:clamp(26px,3vw,38px);font-weight:900;margin-top:12px;max-width:640px}
+  .sub{margin-top:12px;color:var(--slate);max-width:580px}
+
+  .mods{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px}
+  .mod{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:22px 22px 20px;display:flex;gap:16px}
+  .mod .n{flex:0 0 38px;height:38px;border-radius:11px;background:var(--soft);color:var(--deep);
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px}
+  .mod h4{font-size:16.5px;font-weight:800}
+  .mod p{font-size:14px;color:var(--slate);margin-top:5px}
+
+  .fmt{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  .card{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column}
+  .card.main{border-color:var(--accent);box-shadow:0 18px 44px rgba(14,159,140,.13);position:relative}
+  .badge{position:absolute;top:-11px;right:16px;background:var(--accent);color:#fff;font-size:11.5px;font-weight:800;padding:4px 11px;border-radius:999px}
+  .card h3{font-size:18px;font-weight:900}
+  .price{font-size:27px;font-weight:900;color:var(--deep);margin-top:8px}
+  .price small{font-size:13.5px;color:var(--slate);font-weight:700}
+  .card ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px}
+  .card li{position:relative;padding-left:22px;font-size:14px;color:#22454B}
+  .card li::before{content:'';position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;
+    background:var(--soft);border:1.5px solid var(--accent)}
+  .card .who{margin-top:auto;padding-top:16px;font-size:12.5px;color:var(--slate)}
+
+  .est{background:linear-gradient(160deg,#0B7D6E,#0E9F8C);border-radius:24px;padding:38px 34px;color:#fff;
+    display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+  .est h2{font-size:clamp(24px,2.6vw,32px);font-weight:900}
+  .est p{margin-top:12px;color:rgba(255,255,255,.88);font-size:15.5px;max-width:420px}
+  .est .form{background:#fff;border-radius:18px;padding:22px;color:var(--ink)}
+  .fld{margin-bottom:12px}
+  .fld label{display:block;font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--slate);margin-bottom:6px}
+  .fld select,.fld input{width:100%;height:46px;border-radius:11px;border:1px solid #CFE3E6;padding:0 12px;font-size:14.5px;font-family:inherit;background:#fff;color:var(--ink)}
+  .drop{border:1.5px dashed #B9D9D4;border-radius:12px;padding:16px;text-align:center;font-size:13.5px;color:var(--slate);background:#F7FBFC;cursor:pointer}
+  .drop b{color:var(--deep)}
+  .out{margin-top:12px;font-size:14px;font-weight:800;color:var(--deep);min-height:20px}
+  .btn-full{width:100%;background:var(--accent);color:#fff;font-size:15.5px;padding:15px;margin-top:6px}
+
+  .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  .rev{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:22px}
+  .rev .who{display:flex;align-items:center;gap:12px}
+  .rev .ava{width:42px;height:42px;border-radius:50%;background:var(--soft);color:var(--deep);
+    display:flex;align-items:center;justify-content:center;font-weight:900}
+  .rev .nm{font-weight:800;font-size:14.5px}
+  .rev .st{font-size:12.5px;color:#F5B301;letter-spacing:.08em}
+  .rev p{font-size:14px;color:#22454B;margin-top:14px}
+
+  .cta-band{background:#0E2A30;border-radius:24px;padding:44px 40px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:30px}
+  .cta-band h2{font-size:clamp(24px,2.6vw,32px);font-weight:900;max-width:520px}
+  .cta-band p{margin-top:10px;color:rgba(255,255,255,.72);font-size:15px}
+  .cta-band .btn-main{box-shadow:0 16px 36px rgba(14,159,140,.35)}
+
+  footer{padding:40px 0 56px;color:var(--slate);font-size:13.5px;border-top:1px solid var(--line);margin-top:60px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+  @media (max-width:860px){
+    .hdr nav{display:none}
+    .hdr .wrap{height:60px}
+    section{padding:52px 0}
+    .hero{padding:44px 0 40px}
+    .mods,.fmt,.revs{grid-template-columns:1fr}
+    .est{grid-template-columns:1fr;padding:26px 20px;gap:22px}
+    .cta-band{flex-direction:column;align-items:flex-start;padding:30px 22px}
+    .hero-acts .btn-main,.hero-acts .btn-ghost{width:100%}
+    .stats{gap:8px}
+    .stat{flex:1 1 44%;min-width:0;padding:12px 14px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <span class="brand">Clean<b>AtHome</b></span>
+    <nav>
+      <a href="#program">Програма</a>
+      <a href="#formats">Формати</a>
+      <a href="#estimate">Оцінка за фото</a>
+      <a href="#reviews">Відгуки</a>
+    </nav>
+    <button class="btn btn-sm" onclick="document.getElementById('formats').scrollIntoView({behavior:'smooth'})">Записатись</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="kicker">Онлайн-курс + гайд</span>
+    <h1>Навчіться хімчистці меблів <em>з нуля до перших клієнтів</em></h1>
+    <p class="lead">Не теорія про хімію, а робоча система: що купити, як рахувати ціну, як знайти клієнта і не зіпсувати диван.</p>
+    <div class="hero-acts">
+      <button class="btn btn-main" onclick="document.getElementById('formats').scrollIntoView({behavior:'smooth'})">Обрати формат навчання</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('estimate').scrollIntoView({behavior:'smooth'})">Оцінити чистку за фото</button>
+    </div>
+    <p class="hero-note">Онлайн у власному темпі · доступ назавжди · підтримка в чаті</p>
+    <div class="stats">
+      <div class="stat"><b>6+</b><span>років у хімчистці</span></div>
+      <div class="stat"><b>200+</b><span>учнів</span></div>
+      <div class="stat"><b>5 модулів</b><span>від теорії до першого клієнта</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="program">
+  <div class="wrap">
+    <div class="label">Програма</div>
+    <h2 class="sec-h">Від «нічого не вмію» до впевненої роботи</h2>
+    <p class="sub">Кожен модуль — це конкретний навик, який ви перевіряєте на своєму дивані або на першому замовленні.</p>
+    <div class="mods">
+      <div class="mod"><span class="n">01</span><div><h4>Хімія та обладнання</h4><p>Що реально треба купити на старті, а що — марна трата. Розхідники й собівартість.</p></div></div>
+      <div class="mod"><span class="n">02</span><div><h4>Тканини та ризики</h4><p>Велюр, рогожка, флок, шкіра: що можна, що не можна і як не залишити пляму від води.</p></div></div>
+      <div class="mod"><span class="n">03</span><div><h4>Технологія чищення</h4><p>Покроково: від пилососа до екстрактора. Плями, запахи, алергени.</p></div></div>
+      <div class="mod"><span class="n">04</span><div><h4>Ціни та розрахунок</h4><p>Як рахувати вартість за площею й тканиною, щоб працювати з прибутком, а не «за їжу».</p></div></div>
+      <div class="mod"><span class="n">05</span><div><h4>Перші клієнти</h4><p>Оголошення, фото «до/після», скрипт спілкування, сервіс, що приносить повторні замовлення.</p></div></div>
+      <div class="mod"><span class="n">+</span><div><h4>Бонус: чек-листи</h4><p>Готовий прайс, шаблон оголошення, список засобів і пам'ятка «що робити, якщо…».</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="wrap">
+    <div class="label">Формати</div>
+    <h2 class="sec-h">Оберіть, як вам зручніше вчитись</h2>
+    <div class="fmt">
+      <div class="card">
+        <h3>Гайд</h3>
+        <div class="price">1 490 <small>грн</small></div>
+        <ul>
+          <li>PDF-посібник (60 сторінок)</li>
+          <li>Список засобів і обладнання</li>
+          <li>Готовий прайс-шаблон</li>
+          <li>Доступ назавжди</li>
+        </ul>
+        <div class="who">Для тих, хто хоче спробувати сам</div>
+      </div>
+      <div class="card main">
+        <span class="badge">найпопулярніше</span>
+        <h3>Онлайн-курс</h3>
+        <div class="price">4 900 <small>грн</small></div>
+        <ul>
+          <li>5 модулів із відео</li>
+          <li>Розбір ваших робіт</li>
+          <li>Чат учнів + підтримка</li>
+          <li>Сертифікат</li>
+        </ul>
+        <div class="who">Для тих, хто хоче заробляти на цьому</div>
+      </div>
+      <div class="card">
+        <h3>Індивідуально</h3>
+        <div class="price">9 900 <small>грн</small></div>
+        <ul>
+          <li>Особиста програма</li>
+          <li>Виїзд на ваше замовлення</li>
+          <li>Розбір вашого прайсу</li>
+          <li>Супровід 3 місяці</li>
+        </ul>
+        <div class="who">Для тих, хто запускає бізнес</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="estimate">
+  <div class="wrap">
+    <div class="est">
+      <div>
+        <h2>Скільки коштує ваша чистка?</h2>
+        <p>Надішліть фото меблів — ми подивимось тканину й забруднення та скажемо орієнтовну ціну в Direct. Без дзвінків і «приїдемо подивимось».</p>
+      </div>
+      <div class="form">
+        <div class="fld">
+          <label>Що чистимо</label>
+          <select id="item">
+            <option value="900">Диван 2-місний</option>
+            <option value="1400">Кутовий диван</option>
+            <option value="600">Матрац</option>
+            <option value="450">Крісло</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label>Стан</label>
+          <select id="state">
+            <option value="1">Плями є</option>
+            <option value="0.85">Освіження, без плям</option>
+            <option value="1.25">Складні плями / запах</option>
+          </select>
+        </div>
+        <div class="fld">
+          <div class="drop" id="drop"><b>＋ Додати фото</b><br>натисніть, щоб вибрати файл</div>
+        </div>
+        <div class="out" id="out">Орієнтовно: 900 грн</div>
+        <button class="btn btn-full" id="send">Надіслати на оцінку</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="label">Відгуки учнів</div>
+    <h2 class="sec-h">Що кажуть після курсу</h2>
+    <div class="revs">
+      <div class="rev"><div class="who"><span class="ava">О</span><div><div class="nm">Оксана, Київ</div><div class="st">★★★★★</div></div></div>
+        <p>Через місяць після курсу взяла перше замовлення на кутовий диван. Найкорисніше — розрахунок ціни й що казати клієнту.</p></div>
+      <div class="rev"><div class="who"><span class="ava">Д</span><div><div class="nm">Дмитро, Бровари</div><div class="st">★★★★★</div></div></div>
+        <p>Брав гайд, думав буде мало. Вистачило, щоб зробити перші 5 чисток і зрозуміти, що це моє.</p></div>
+      <div class="rev"><div class="who"><span class="ava">І</span><div><div class="nm">Ірина, Ірпінь</div><div class="st">★★★★★</div></div></div>
+        <p>Найбільше зайшли розбори помилок. Я б точно зіпсувала велюр, якби не модуль про тканини.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Наступний потік стартує найближчим часом</h2>
+        <p>Залиште заявку — надішлемо програму й умови. Без спаму.</p>
+      </div>
+      <button class="btn btn-main" onclick="document.getElementById('formats').scrollIntoView({behavior:'smooth'})">Записатись на курс</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Clean At Home · навчання хімчистці меблів</span>
+    <span>Київ та передмістя · Instagram: @clean_at_home.kyiv</span>
+  </div>
+</footer>
+
+<script>
+  var item = document.getElementById('item');
+  var state = document.getElementById('state');
+  var out = document.getElementById('out');
+  function calc(){
+    var v = Math.round(+item.value * +state.value / 50) * 50;
+    out.textContent = 'Орієнтовно: ' + v + ' грн';
+  }
+  item.addEventListener('change', calc);
+  state.addEventListener('change', calc);
+  document.getElementById('drop').addEventListener('click', function(){
+    this.innerHTML = '<b>✓ Фото додано</b><br>ми подивимось і відповімо в Direct';
+  });
+  document.getElementById('send').addEventListener('click', function(){
+    this.textContent = 'Заявку надіслано ✓';
+    this.style.background = '#0B7D6E';
+  });
+</script>
+</body>
+</html>
